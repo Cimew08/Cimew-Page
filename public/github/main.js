@@ -2,9 +2,8 @@ github.getGithubData("Cimew08").then((data) => {
   document.getElementById("avatar").src = data.avatar;
   document.getElementById("under_content").innerHTML = data.bio;
   const box = document.getElementById("projectBox");
-  document.getElementById(
-    "under_text"
-  ).innerHTML = `<h1>Hi! I'm ${data.user.name}</h1>`;
+  document.getElementById("under_text").innerHTML =
+    `<h1>Hi! I'm ${data.user.name}</h1>`;
 
   data.repo.forEach((repo) => {
     const card = document.createElement("div");

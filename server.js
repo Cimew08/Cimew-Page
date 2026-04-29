@@ -1,26 +1,19 @@
 const express = require("express");
-const app = express();
 const dotenv = require("dotenv");
+const pageRoute = require("./routes/pageRoute");
 const path = require("path");
-const cimewRouter = require("./routes/cimew-page");
 
 dotenv.config({
   path: "./config/env/config.env",
 });
+const app = express();
 
 const PORT = process.env.PORT || 5000;
 
 app.use(express.static(path.join(__dirname, "public")));
 
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
-
-app.get("/", (req, res) => {
-  res.render("index");
-});
-
-app.use("/cimew-page", cimewRouter);
+app.use("/cimew-page", pageRoute);
 
 app.listen(PORT, () => {
-  console.log(`Sunucu ${PORT} portunda çalışıyor`);
+  console.log(`${PORT} running`);
 });
