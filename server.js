@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/cimew-page", pageRoute);
+app.use("/", pageRoute);
 
 app.listen(PORT, () => {
   console.log(`${PORT} running`);
